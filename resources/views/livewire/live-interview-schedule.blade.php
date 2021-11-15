@@ -193,7 +193,7 @@
                         <input wire:model="loanAmt" id="loanAmt" type="text" placeholder="$" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         @error('loanAmt')
                         <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
+                            {{ "Please enter loan amount." }}
                         </p>
                         @enderror
                     </div>
@@ -204,7 +204,7 @@
                         <input wire:model="intRate" id="intRate" type="text" placeholder="%" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         @error('intRate')
                         <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
+                            {{"Please enter interest amount." }}
                         </p>
                         @enderror
                     </div>
@@ -215,7 +215,7 @@
                         <input wire:model="repayPeriod" id="repayPeriod" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         @error('repayPeriod')
                         <p class="text-red-500 text-xs italic mt-4">
-                            {{ $message }}
+                            {{ "Please select number of repayment year(s)." }}
                         </p>
                         @enderror
                     </div>
@@ -259,7 +259,7 @@
                             <textarea wire:model="comment" id="comm" placeholder="comments.." class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                             @error('comment')
                             <p class="text-red-500 text-xs italic mt-4">
-                                {{ $message }}
+                                {{ "Please state reason for loan application denial."}}
                             </p>
                             @enderror
                         </div>

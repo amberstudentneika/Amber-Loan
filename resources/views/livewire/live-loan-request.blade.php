@@ -68,7 +68,7 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="num">
                         Phone Number
                     </label>
-                    <input wire:model="tel" id="num" type="tel" placeholder="876-362-4898" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input wire:model="tel" id="num" type="tel" placeholder="876-362-4898" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @error('tel')
                     <p class="text-red-500 text-xs italic mt-4">
                     {{ $message }}

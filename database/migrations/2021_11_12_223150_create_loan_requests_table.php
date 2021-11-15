@@ -15,12 +15,12 @@ class CreateLoanRequestsTable extends Migration
     {
         Schema::create('loan_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('trn')->unique();
+            $table->string('trn');
             $table->string('fName');
             $table->string('lName');
             $table->string('gender');
             $table->string('homeAddress');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('phoneNum');
             $table->float('amount',10,2);
             $table->string('status');

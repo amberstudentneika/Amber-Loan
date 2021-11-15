@@ -48,10 +48,11 @@ class LiveViewLoanRequest extends Component
     }
     }
 
+
     public function scheduledInterview(){
         $this->validate([
-           'date'=> 'required',
-           'time'=> 'required'
+        'date'=> 'required|after:yesterday',
+        'time'=> 'required'
         ]);
 
         $id=$this->ID;
@@ -73,8 +74,13 @@ class LiveViewLoanRequest extends Component
         LoanRequest::find($id)->update([
             'loanOfficer'   => $loanOfficer
         ]);
+        $intDetail=Interview::find($id);
+
         $emailContent=[
-            'name'  => $firstname." ".$lastname
+            'name'  => $firstname." ".$lastname,
+            'date'  => $intDetail->date,
+            'time'  => $intDetail->time,
+            'loanOfficer' => $intDetail->scheduledBy
         ];
         Mail::to($mail)->send(new interviewRequest($emailContent));
 

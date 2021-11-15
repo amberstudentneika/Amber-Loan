@@ -21,5 +21,12 @@ class LoanOfficerSeeder extends Seeder
             'email'     => 'shaneika@amberloans.com',
             'password'  => Hash::make('password'),
         ]);
+        User::create([
+            'fName'     => 'Malachi',
+            'lName'     => 'Lewis',
+            'gender'    => 'Male',
+            'email'     => 'Malachi@amberloans.com',
+            'password'  => Hash::make('password'),
+        ]);
     }
 }

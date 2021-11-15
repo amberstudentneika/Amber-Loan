@@ -1,7 +1,7 @@
 <div>
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
 @if($viewMode==false)
-    <div class="bg-indigo-900 bg-cover">
+{{--    <div class="bg-indigo-900 bg-cover h-full pt-24 pb-90">--}}
         <div class=" md:overflow-hidden">
             <div class="mt-5 flex justify-items-center justify-center">
                 <div class="w-full max-w-xs">
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-    </div>
+{{--    </div>--}}
 
 @elseif($viewCandidateInfo==true)
     <div class="bg-indigo-900 md:overflow-hidden">
@@ -200,17 +200,11 @@
                                 </div>
 
                             </div>
-{{--                            <div class="py-6 px-3 mt-32 sm:mt-0">--}}
-{{--                                <form wire:submit.prevent="submitLoanRequest()">--}}
-{{--                                    <button  type="submit" class="bg-indigo-900 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" >--}}
-{{--                                        Submit--}}
-{{--                                    </button>--}}
-{{--                                </form>--}}
-{{--                            </div>--}}
+
                         </div>
                     </div>
-                </div>
 
+            </div>
 
         </section>
 

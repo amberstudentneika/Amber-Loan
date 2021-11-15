@@ -64,9 +64,9 @@
                     </td>
                 </tr>
             @empty
-                <tr>
-                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                        No requests at this time
+                <tr >
+                    <td class=" border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                        No request(s) at this time
                     </td>
                 </tr>
             @endforelse
@@ -133,7 +133,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                        <td class=" border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
                             No requests at this time
                         </td>
                     </tr>
@@ -155,7 +155,7 @@
                             <input wire:model="date" id="date" type="date" placeholder="" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             @error('date')
                             <p class="text-red-500 text-xs italic mt-4">
-                                {{ $message }}
+                                {{ "Select a future date." }}
                             </p>
                             @enderror
                         </div>
@@ -166,7 +166,7 @@
                             <input wire:model="time" id="time" type="time"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             @error('time')
                             <p class="text-red-500 text-xs italic mt-4">
-                                {{ $message }}
+                                {{ "The interview time is required." }}
                             </p>
                             @enderror
                         </div>

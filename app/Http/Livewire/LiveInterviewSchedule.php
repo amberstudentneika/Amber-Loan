@@ -39,7 +39,14 @@ class LiveInterviewSchedule extends Component
             $this->image = $document->photo;
         }
     }
+
+
+
         public function loanInvalid($id){ //loan id comes in here
+           $this->validate([
+               'comment'=> 'required',
+           ]);
+
             $this->lID = $id;
             if($this->docValidation=="Invalid"){
                 LoanRequest::where('id',$id)->update([
@@ -68,6 +75,13 @@ class LiveInterviewSchedule extends Component
         }
 
     public function loanValid($id){ //loan id comes in here
+
+        $this->validate([
+            'loanAmt'=> 'required',
+            'intRate'=> 'required',
+            'repayPeriod'=> 'required'
+        ]);
+
         $this->viewSchedule=true;
         $this->viewDoc=true;
 //        $amt= LoanRequest::find($id);

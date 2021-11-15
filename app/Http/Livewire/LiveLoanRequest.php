@@ -48,7 +48,7 @@ public function clearField(){
         'firstname' => 'required',
         'lastname'  => 'required',
         'gender'    => 'required',
-        'mail'      => 'required|email|unique:loan_requests,email',
+        'mail'      => 'required',
         'tel'       => 'required',
         'loanAmt'   => 'required',
         'trn'       => 'required',
@@ -56,19 +56,19 @@ public function clearField(){
     ];
 
     protected $messages=[
-        'firstname.required'  => 'Your firstname required',
-        'lastname.required'   => 'Your lastname required',
-        'homeAddress.required'     => 'Your home address is required',
+        'firstname.required'  => 'Your firstname required.',
+        'lastname.required'   => 'Your lastname required.',
+        'homeAddress.required'     => 'Your home address is required.',
         'gender.required'     => 'Please select your gender',
-        'mail.required'       => 'This field is required',
-        'tel.required'        => 'Your contact number is required',
-        'trnImg.required'    => 'Please upload a copy of your TRN',
-        'trn.required'        => 'Your tax registration number is required',
+        'mail.required'       => 'This field is required.',
+        'tel.required'        => 'Your contact number is required.',
+        'trnImg.required'    => 'Please upload a copy of your TRN.',
+        'trn.required'        => 'Your tax registration number is required.',
         'income.required'     => 'Please upload copy of your income (pdf).',
-        'address.required'    => 'Please upload proof of address [bill,letter]',
-        'identity.required'   => 'Please upload a copy of your ID [ID, Passport]',
-        'image.required'      => 'Please upload a passport size photograph',
-        'loanAmt.required'    => 'The loan amount is required',
+        'address.required'    => 'Please upload proof of address [bill,letter].',
+        'identity.required'   => 'Please upload a copy of your ID [ID, Passport].',
+        'image.required'      => 'Please upload a passport size photograph.',
+        'loanAmt.required'    => 'The loan amount is required.',
     ];
 
     public function updated($propertyName){
@@ -88,11 +88,11 @@ public function clearField(){
 
     public function personalDocs(){
         $this->validate([
-        'trnImg'   => 'required|image',
-        'income'      => 'required',
-        'address'     => 'required',
-        'identity'    => 'required',
-        'image'       => 'required|image'
+        'trnImg'   => 'required|mimes:png,jpg,jpeg,pdf|max:10240',
+        'income'      => 'required|mimes:png,jpg,jpeg,pdf|max:10240',
+        'address'     => 'required|mimes:png,jpg,jpeg,pdf|max:10240',
+        'identity'    => 'required|mimes:png,jpg,jpeg,pdf|max:10240',
+        'image'       => 'required|mimes:png,jpg,jpeg,pdf|max:10240'
         ]);
     }
 
@@ -117,16 +117,16 @@ public function clearField(){
 
         $loanRID=LoanRequest::create([
             'trn'       => $this->trn,
-            'fName'     => $this->firstname,
-            'lName'     => $this->lastname,
+            'fName'     => ucfirst($this->firstname),
+            'lName'     => ucfirst($this->lastname),
             'gender'    => $this->gender,
             'homeAddress' => $this->homeAddress,
             'email'      => $this->mail,
             'phoneNum'   => $this->tel,
             'amount'     => $this->loanAmt,
-            'status'     => 'undecided',
+            'status'     => 'Undecided',
             'comments'     => 'no comment added',
-            'loanOfficer'=> 'unassigned',
+            'loanOfficer'=> 'Unassigned',
         ])->id;
         Document::create([
             'loanReqID'         => $loanRID,
@@ -135,8 +135,8 @@ public function clearField(){
             'trnImg'            => $file1,
             'identification'    => $file4,
             'photo'             => $file5,
-            'valid'             => 'undecided',
-            'checkedBy'       => 'unassigned',
+            'valid'             => 'Undecided',
+            'checkedBy'       => 'Unassigned',
         ]);
         $this->clearField();
         Session()->flash('Success','Successful');
@@ -152,81 +152,3 @@ public function clearField(){
     }
 }
 
-
-//namespace App\Http\Livewire;
-//
-//use Livewire\Component;
-//use Livewire\WithFileUploads;
-//
-//class LiveLoanRequest extends Component
-//{
-//    use WithFileUploads;
-//
-//    public $loanAmt, $firstname, $lastname, $gender, $mail, $tel;
-//    public $addDocMode, $viewMode, $editMode, $addMode = false;
-//    public $trn, $income, $address, $identity, $image;
-//
-////    public function add(){
-////        $this->addMode=false;
-////    }
-////    public function view(){
-////        $this->viewMode=true;
-////    }
-////    public function edit(){
-////        $this->editMode=true;
-////    }
-//
-//    protected $rules = [
-//        'firstname' => 'required',
-//        'lastname' => 'required',
-//        'gender' => 'required',
-//        'mail' => 'required|email',
-//        'tel' => 'required',
-//        'loanAmt' => 'required',
-//        'trn' => 'required',
-//        'income' => 'required',
-//        'address' => 'required',
-//        'identity' => 'required',
-//        'image' => 'required|image'
-//    ];
-//
-//    protected $messages = [
-//        'firstname.required' => 'Your firstname required',
-//        'lastname.required' => 'Your lastname required',
-//        'gender.required' => 'Please select your gender',
-//        'mail.required' => 'This field is required',
-//        'tel.required' => 'Your contact number is required',
-//        'trn.required' => 'Your TRN field is required',
-//        'income.required' => 'Please upload copy of your income (pdf).',
-//        'address.required' => 'Your address is required',
-//        'identity.required' => 'Please upload a copy of your ID (ID, Passport)',
-//        'image.required' => 'Please upload a passport size photograph',
-//        'loanAmt.required' => 'The loan amount is required',
-//    ];
-//
-//    public function updated($propertyName)
-//    {
-//        $this->validateOnly($propertyName);
-//    }
-//
-//    public function personalInfo()
-//    {
-//        $val = $this->validate();
-//        $this->addMode = true;
-//        $this->addDocMode = true;
-//        dd($this->firstname);
-//    }
-//
-//    public function personalDocs()
-//    {
-//        $val2 = $this->validate();
-//        $trn = $this->trn->getclientOriginalName();
-//        $name = $this->frst_nm . ' ' . $this->last_nm . '[TRN]' . $file;
-//        $this->trn->storeAs('docs', $name);
-//    }
-//
-//    public function render()
-//    {
-//        return view('livewire.live-loan-request');
-//    }
-//}
