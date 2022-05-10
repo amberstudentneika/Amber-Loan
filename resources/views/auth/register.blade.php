@@ -6,7 +6,7 @@
         <div class="w-full">
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
-                <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="px-6 py-5 font-semibold text-gray-700 bg-gray-200 sm:py-6 sm:px-8 sm:rounded-t-md">
                     {{ __('Register') }}
                 </header>
 
@@ -15,7 +15,7 @@
                     @csrf
 
                     <div class="flex flex-wrap">
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="name" class="block mb-2 text-sm font-bold text-gray-700 sm:mb-4">
                             {{ __('Name') }}:
                         </label>
 
@@ -23,14 +23,14 @@
                             name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                         @error('name')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ $message }}
                         </p>
                         @enderror
                     </div>
 
                     <div class="flex flex-wrap">
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="email" class="block mb-2 text-sm font-bold text-gray-700 sm:mb-4">
                             {{ __('E-Mail Address') }}:
                         </label>
 
@@ -39,14 +39,14 @@
                             value="{{ old('email') }}" required autocomplete="email">
 
                         @error('email')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ $message }}
                         </p>
                         @enderror
                     </div>
 
                     <div class="flex flex-wrap">
-                        <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="password" class="block mb-2 text-sm font-bold text-gray-700 sm:mb-4">
                             {{ __('Password') }}:
                         </label>
 
@@ -55,30 +55,30 @@
                             required autocomplete="new-password">
 
                         @error('password')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ $message }}
                         </p>
                         @enderror
                     </div>
 
                     <div class="flex flex-wrap">
-                        <label for="password-confirm" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="password-confirm" class="block mb-2 text-sm font-bold text-gray-700 sm:mb-4">
                             {{ __('Confirm Password') }}:
                         </label>
 
-                        <input id="password-confirm" type="password" class="form-input w-full"
+                        <input id="password-confirm" type="password" class="w-full form-input"
                             name="password_confirmation" required autocomplete="new-password">
                     </div>
 
                     <div class="flex flex-wrap">
                         <button type="submit"
-                            class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
+                            class="w-full p-3 text-base font-bold leading-normal text-gray-100 no-underline whitespace-no-wrap bg-blue-500 rounded-lg select-none hover:bg-blue-700 sm:py-4">
                             {{ __('Register') }}
                         </button>
 
-                        <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
+                        <p class="w-full my-6 text-xs text-center text-gray-700 sm:text-sm sm:my-8">
                             {{ __('Already have an account?') }}
-                            <a class="text-blue-500 hover:text-blue-700 no-underline hover:underline" href="{{ route('login') }}">
+                            <a class="text-blue-500 no-underline hover:text-blue-700 hover:underline" href="{{ route('login') }}">
                                 {{ __('Login') }}
                             </a>
                         </p>

@@ -1,106 +1,115 @@
 <div>
     @if($addMode==false)
 
-    <div class="bg-indigo-900 bg-cover md:overflow-hidden">
-        <div class="mt-5 flex justify-items-center justify-center">
-        <div class="w-full max-w-xs">
-            <form wire:submit.prevent="personalInfo" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="w-full h-full bg-cover "
+    style="background-image: url('../images/bg.jpg')">
+        <div class="flex justify-center justify-items-center">
+        <div class="mb-20">
+            <form wire:submit.prevent="personalInfo" class="px-10 pt-6 pb-8 mt-20 mb-4 bg-white rounded shadow-md ">
+                <h1 class="pb-10 text-sm font-bold text-center text-gray-700">Please ensure that the information provided below is correct before submitting.</h1>
+                <div class="grid grid-cols-2 gap-x-20 sm:grid-cols-2 ">
+              <div class=""> 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="trn">
+                    <label class="block mb-2 text-sm font-bold text-gray-700" for="trn">
                         Trn
                     </label>
-                    <input wire:model="trn" id="trn" type="text" placeholder="" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input wire:model="trn" id="trn" type="text" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="xxx-xxx-xxx" class="w-full px-3 py-2 leading-tight text-gray-700 border border-gray-400 rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                     @error('trn')
-                    <p class="text-red-500 text-xs italic mt-4">
+                    <p class="mt-4 text-xs italic text-red-500">
                         {{ $message }}
                     </p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="fname">
+                    <label class="block mb-2 text-sm font-bold text-gray-700" for="fname">
                        First Name
                     </label>
-                    <input wire:model="firstname" id="fname" type="text" placeholder="Shana" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input wire:model="firstname" id="fname" type="text" placeholder="Shaneika" class="w-full px-3 py-2 leading-tight text-gray-700 border border-gray-400 rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                     @error('firstname')
-                    <p class="text-red-500 text-xs italic mt-4">
+                    <p class="mt-4 text-xs italic text-red-500">
                         {{ $message }}
                     </p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                    <label class="block mb-2 text-sm font-bold text-gray-700" for="name">
                         Last Name
                     </label>
-                    <input wire:model="lastname" id="name" type="text" placeholder="Lewis" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input wire:model="lastname" id="name" type="text" placeholder="Lewis" class="w-full px-3 py-2 leading-tight text-gray-700 border border-gray-400 rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                     @error('lastname')
-                    <p class="text-red-500 text-xs italic mt-4">
+                    <p class="mt-4 text-xs italic text-red-500">
                         {{ $message }}
                     </p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                    <label class="block mb-2 text-sm font-bold text-gray-700" for="name">
                         Gender
                     </label>
-                    <select wire:model="gender" id="gender" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <select wire:model="gender" id="gender" class="w-full px-3 py-2 leading-tight text-gray-500 border border-gray-400 rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                     <option>Select gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     </select>
                     @error('gender')
-                    <p class="text-red-500 text-xs italic mt-4">
+                    <p class="mt-4 text-xs italic text-red-500">
                         {{ $message }}
                     </p>
                     @enderror
                 </div>
+              </div>
+
+                <div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="mail">
+                    <label class="block mb-2 text-sm font-bold text-gray-700" for="mail">
                         Email address
                     </label>
-                    <input wire:model="mail" id="mail" type="email" placeholder="Lewis@gmail.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input wire:model="mail" id="mail" type="email" placeholder="email@example.com" class="w-full px-3 py-2 leading-tight text-gray-700 border border-gray-400 rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                     @error('mail')
-                    <p class="text-red-500 text-xs italic mt-4">
+                    <p class="mt-4 text-xs italic text-red-500">
                         {{ $message }}
                     </p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="num">
+                    <label class="block mb-2 text-sm font-bold text-gray-700" for="num">
                         Phone Number
                     </label>
-                    <input wire:model="tel" id="num" type="tel" placeholder="876-362-4898" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input wire:model="tel" id="num" type="tel" placeholder="xxx-xxx-xxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="w-full px-3 py-2 leading-tight text-gray-700 border border-gray-400 rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                     @error('tel')
-                    <p class="text-red-500 text-xs italic mt-4">
+                    <p class="mt-4 text-xs italic text-red-500">
                     {{ $message }}
                     </p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="home">
+                    <label class="block mb-2 text-sm font-bold text-gray-700" for="home">
                         Home Address
                     </label>
-                    <input wire:model="homeAddress" id="home" type="text" placeholder="Lewis@gmail.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input wire:model="homeAddress" id="home" type="text" placeholder="22 Example Street" class="w-full px-3 py-2 leading-tight text-gray-700 border border-gray-400 rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                     @error('homeAddress')
-                    <p class="text-red-500 text-xs italic mt-4">
+                    <p class="mt-4 text-xs italic text-red-500">
                         {{ $message }}
                     </p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="amt">
+                    <label class="block mb-2 text-sm font-bold text-gray-700" for="amt">
                         Desired Loan Amount
                     </label>
-                    <input wire:model="loanAmt" id="amt" type="text" placeholder="70000" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input wire:model="loanAmt" id="amt" type="text" placeholder="0" class="w-1/2 px-3 py-2 leading-tight text-gray-700 border border-gray-400 rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                     @error('loanAmt')
-                    <p class="text-red-500 text-xs italic mt-4">
+                    <p class="mt-4 text-xs italic text-red-500">
                         {{ $message }}
                     </p>
                     @enderror
                 </div>
+                </div>
                 <div class="flex items-center justify-between">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >
+                    <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" >
                         Next
                     </button>
+                </div>
                 </div>
             </form>
         </div>
@@ -108,98 +117,100 @@
         </div>
 @elseif($addDocMode==true)
 
-        <div class="bg-indigo-900 md:overflow-hidden">
-            <div class="mt-5 flex justify-items-center justify-center">
-            <div class="w-full max-w-xs">
-{{--               @if($show==false)--}}
-{{--                    @if($trnImg)--}}
-{{--                    <p>Photo Preview:</p>--}}
-{{--                    <img src="{{ $trnImg->temporaryUrl() }}">--}}
-{{--                    @endif--}}
-{{--                    @elseif($identity)--}}
-{{--                        <p>Photo Preview:</p>--}}
-{{--                        <img src="{{ $identity->temporaryUrl() }}">--}}
-{{--                    @endif--}}
-{{--                    @if($image)--}}
-{{--                        <p>Photo Preview:</p>--}}
-{{--                        <img src="{{ $image->temporaryUrl() }}">--}}
-{{--                    @endif--}}
-{{--                    @if($income)--}}
-{{--                        <p>Photo Preview:</p>--}}
-{{--                        <img src="{{ $income->temporaryUrl() }}">--}}
-{{--                    @endif--}}
-{{--                    @if($address)--}}
-{{--                        <p>Photo Preview:</p>--}}
-{{--                        <img src="{{ $address->temporaryUrl() }}">--}}
-{{--                    @endif--}}
-{{--                @endif  --}}
-                <form wire:submit.prevent="personalDocs" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="trnIm">
+<div class="w-full h-full bg-cover "
+style="background-image: url('../images/bg.jpg')">
+            <div class="flex justify-center justify-items-center">
+                <div class="mb-20">
+                <form wire:submit.prevent="personalDocs" class="px-10 pt-6 pb-8 mt-20 mb-4 bg-white rounded shadow-md">
+                <h1 class="pb-10 text-xl font-bold text-center text-gray-700">Upload Documents</h1>
+                <div class="mb-4">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="trnIm">
                             TRN
                         </label>
-                        <input wire:model="trnImg" id="trnIm" type="file" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input wire:model="trnImg" id="trnIm" type="file" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                         <div wire:loading wire:target="trnImg"><span class="text-indigo-900">uploading..</span></div>
                         @error('trnImg')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ $message }}
                         </p>
                         @enderror
                     </div>
+
+                    {{--  --}}
+
+{{--                     
+                    <div x-data="{isUploading: false, progress: 5}"
+                        x-on:livewire-upload-start="isUploading = true"
+                        x-on:livewire-upload-finish="isUploading = false: progress = 5"
+                        x-on:livewire-upload-error="isUploading = false"
+                        x-on:livewire-upload-progress="progress = $event.detail.progress"
+                        
+                    >
+                        <input wire:model="resume" type="file" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
+                        <div x-show.transition="isUploading">
+                            <div class="relative h-3 max-w-xl overflow-hidden rounded-full">
+                                <div class="absolute w-full h-full bg-gray-200"></div>
+                                <div x-bind:style="`width:${progress}%`" class="absolute h-full bg-green-500"></div>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                       {{--  --}}
+                        
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="identity">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="identity">
                             ID
                         </label>
-                        <input wire:model="identity" id="identity" type="file" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input wire:model="identity" id="identity" type="file" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                         <div wire:loading wire:target="identity"><span class="text-indigo-900">uploading..</span></div>
                         @error('identity')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ $message }}
                         </p>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="image">
                             Passport size photo
                         </label>
-                        <input wire:model="image" id="image" type="file" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input wire:model="image" id="image" type="file" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                         <div wire:loading wire:target="image"><span class="text-indigo-900">uploading..</span></div>
                         @error('image')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ $message }}
                         </p>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="income">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="income">
                             Proof of income
                         </label>
-                        <input wire:model="income" id="income" type="file" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input wire:model="income" id="income" type="file" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                         <div wire:loading wire:target="income"><span class="text-indigo-900">uploading..</span></div>
                         @error('income')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ $message }}
                         </p>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="address">
                             Proof of address
                         </label>
-                        <input wire:model="address" id="address" type="file" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input wire:model="address" id="address" type="file" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                         <div wire:loading wire:target="address"><span class="text-indigo-900">uploading..</span></div>
                         @error('address')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ $message }}
                         </p>
                         @enderror
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <button wire:click="back" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        <button wire:click="back" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="button">
                             Back
                         </button>
-                        <button wire:click="view" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        <button wire:click="view" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="button">
                             Review
                         </button>
 
@@ -207,68 +218,55 @@
                 </form>
             </div>
         </div>
-        <div class="flex justify-items-center justify-center">
+        <div class="flex justify-center justify-items-center">
         </div>
         </div>
 @elseif($viewMode==true)
-        <div class="bg-indigo-900 md:overflow-hidden">
+<div class="w-full h-full bg-cover "
+style="background-image: url('../images/background.jpg')">
             <!-- component -->
 
-{{--            <main class="profile-page">--}}
-                <section class="relative block h-72">
-{{--                    <div class="absolute top-0 w-full h-full bg-center bg-cover" style="--}}
-          {{--  background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80');--}}
-          {{--">--}}
-          {{--              <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>--}}
-{{--                 </div>--}}
-                    <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
-                        <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                            <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
-                        </svg>
-                    </div>
+<section class="relative block h-72">
+ <div class="absolute bottom-0 left-0 right-0 top-auto w-full overflow-hidden pointer-events-none h-70-px" style="transform: translateZ(0px)">
+           </div>
                 </section>
-                <section class="relative py-16 bg-blueGray-200">
-                    <div class="container mx-auto px-4">
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+                <section class="relative py-16">
+                    <div class="container px-4 mx-auto">
+                        <div class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl">
                             <div class="px-6">
                                 <div class="flex flex-wrap justify-center">
-{{--                                    <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">--}}
-{{--                                        <div class="relative">--}}
-{{--                                            <img alt="passport size photo" src="/storage/docs/LoanRequest/.'{{$image}}'" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-                                    <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
-                                        <div class="py-6 px-3 mt-32 sm:mt-0">
+<div class="w-full px-4 lg:w-4/12 lg:order-3 lg:text-right lg:self-center">
+                                        <div class="px-3 py-6 mt-32 sm:mt-0">
 
                                         </div>
                                     </div>
-                                    <div class="w-full lg:w-4/12 px-4 lg:order-1"> </div>
+                                    <div class="w-full px-4 lg:w-4/12 lg:order-1"> </div>
                                 </div>
-                                <div class="text-center mt-12">
-                                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                                <div class="mt-12 text-center">
+                                    <h3 class="mb-2 font-serif text-4xl font-semibold leading-normal text-blueGray-700">
                                         {{ucfirst($firstname)." ".ucfirst($lastname)}}
                                     </h3>
-                                    <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                                        <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-                                        Address: {{ucfirst($homeAddress)}}
+                                    <div class="mt-0 mb-2 text-blueGray-600">
+                                        <span class="mr-2 text-lg fas fa-user-alt text-blueGray-400 font-arial"> Gender: {{ucfirst($gender)}}</span>
+                                        {{-- <p class="text-lg text-blueGray-400"></p> --}}
                                     </div>
-                                    <div class="mb-2 text-blueGray-600 mt-10">
-                                        <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                                        Gender: {{ucfirst($gender)}}
+                                    <div class="mt-5 mb-2 text-sm leading-normal text-blueGray-400">
+                                        <span class="mr-2 text-xl fas fa-map-marker-alt text-blueGray-400"> Address: {{ucfirst($homeAddress)}}</span>
+                                        {{-- <p class="text-lg text-blueGray-400">Address: {{ucfirst($homeAddress)}}</p> --}}
                                     </div>
-                                    <div class="mb-2 text-blueGray-600 mt-10">
-                                        <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                                        Email Address: {{$mail}}
+                                    <div class="mt-5 mb-2 text-blueGray-600">
+                                        <span class="mr-2 text-xl fas fa-envelope text-blueGray-400"> Email Address: {{$mail}}</span>
+                                        {{-- <p class="text-lg text-blueGray-400">Email Address: {{$mail}}</p> --}}
                                     </div>
-                                    <div class="mb-2 text-blueGray-600">
-                                        <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-                                        Phone Number: {{$tel}}
+                                    <div class="mt-5 mb-2 text-blueGray-600">
+                                        <i class="mr-2 text-xl fas fa-mobile-alt text-blueGray-400"> Phone Number: {{$tel}}</i>
+                                        {{-- <p class="text-lg text-blueGray-400">Phone Number: {{$tel}}</p> --}}
                                     </div>
                                 </div>
-                                <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
+                                <div class="py-10 mt-10 text-center border-t border-blueGray-200">
                                     <div class="flex flex-wrap justify-center">
-                                        <div class="w-full lg:w-9/12 px-4">
-                                            <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                        <div class="w-full px-4 lg:w-9/12">
+                                            <p class="mb-4 font-serif text-lg tracking-wide text-blueGray-500">
                                                 I <b>{{ucfirst($firstname)." ".ucfirst($lastname)}}</b> is requesting to borrow a loan amount of
                                                 <b>${{$loanAmt}}</b>. I thereby attest that all information provided
                                                 is accurate and also understand to providing false documents is a criminal
@@ -280,12 +278,12 @@
                                         </div>
 
                                     </div>
-                                    <div class="py-6 px-3 mt-32 sm:mt-0">
+                                    <div class="px-3 py-6 mt-32 sm:mt-0">
                                         <form wire:submit.prevent="submitLoanRequest()">
-                                        <button  type="submit" class="bg-green-900 active:bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" >
+                                        <button  type="submit" class="px-4 py-2 mb-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-green-900 rounded shadow outline-none active:bg-green-600 hover:shadow-md focus:outline-none sm:mr-2" >
                                             Submit
                                         </button>
-                                            <button wire:click="edit" type="button" class="bg-indigo-900 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" >
+                                            <button wire:click="edit" type="button" class="px-4 py-2 mb-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-indigo-900 rounded shadow outline-none active:bg-pink-600 hover:shadow-md focus:outline-none sm:mr-2" >
                                                 Edit
                                             </button>
                                         </form>

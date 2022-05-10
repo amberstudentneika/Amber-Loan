@@ -1,22 +1,22 @@
 <div>
     @if($viewSchedule==false)
     <div class="block w-full overflow-x-auto">
-        <table class="items-center bg-transparent w-full border-collapse ">
+        <table class="items-center w-full bg-transparent border-collapse ">
             <thead>
             <tr>
-                <th class="text-left px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                     Name
                 </th>
-                <th class="text-left px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                     Contact number
                 </th>
-                <th class="text-left px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                     Email Address
                 </th>
-                <th class="text-left px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                     Date
                 </th>
-                <th class="text-left px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                     Time
                 </th>
             </tr>
@@ -25,24 +25,24 @@
             <tbody>
             @forelse($interviewSchedules as $interviewSchedule)
                 <tr>
-                    <th class="text-left border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                    <th class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap text-blueGray-700 ">
                         {{$interviewSchedule->loanRequest->fName." ".$interviewSchedule->loanRequest->lName}}
                     </th>
-                    <td class="text-left border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                    <td class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap ">
                         {{$interviewSchedule->loanRequest->phoneNum}}
                     </td>
-                    <td class="text-left border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                    <td class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap ">
                         {{$interviewSchedule->loanRequest->email}}
                     </td>
-                    <td class="text-left  border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                    <td class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap ">
                         {{$interviewSchedule->date}}
                     </td>
-                    <td class=" text-left border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                    <td class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
                         {{$interviewSchedule->time}}
                     </td>
-                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                    <td class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap ">
                         <form wire:submit.prevent="viewDocument({{$interviewSchedule->loanReqID}})">
-                            <a href=""> <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >
+                            <a href=""> <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" >
                                     Conduct Interview
                                 </button></a>
                         </form>
@@ -50,7 +50,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                    <td colspan="7" class="p-4 px-6 text-xs text-center border-t-0 border-l-0 border-r-0 whitespace-nowrap ">
                         No requests at this time
                     </td>
                 </tr>
@@ -99,25 +99,25 @@
                 </div>
             @endif
 {{--            --}}
-            <table class="items-center bg-transparent w-full border-collapse ">
+            <table class="items-center w-full bg-transparent border-collapse ">
                 <thead>
                 <tr>
-                    <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                         Photograph
                     </th>
-                    <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                         Identification
                     </th>
-                    <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                         TRN
                     </th>
-                    <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                         POI
                     </th>
-                    <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                    <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">
                         POA
                     </th>
-{{--                    <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">--}}
+{{--                    <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid bg-blueGray-50 text-blueGray-500 border-blueGray-100 whitespace-nowrap">--}}
 {{--                        Status [Valid/InValid]--}}
 {{--                    </th>--}}
                 </tr>
@@ -126,24 +126,24 @@
                 <tbody>
 {{--                @forelse($loanRequests as $loanRequest)--}}
                     <tr>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                        <td class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap text-blueGray-700 ">
                             <a href="{{url('/storage/docs/docs/'.$this->image)}}" target="_blank">View Image</a>
                         </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                        <td class="p-4 px-6 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap text-blueGray-700 ">
                             <a href="{{url('/storage/docs/docs/'.$this->identity)}}" target="_blank">View Image</a>
                         </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                        <td class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap ">
                             <a href="{{url('/storage/docs/docs/'.$this->trnImg)}}" target="_blank">View Image</a>
                         </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                        <td class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap ">
                             <a href="{{url('/storage/docs/docs/'.$this->income)}}" target="_blank">View Image</a>
                         </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                        <td class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap ">
                             <a href="{{url('/storage/docs/docs/'.$this->address)}}" target="_blank">View Image</a>
                         </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                        <td class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap ">
                             {{--                            <form wire:click.prevent="requestInterview({{$this->loanRID}})">--}}
-                            {{--                                <a href=""> <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >--}}
+                            {{--                                <a href=""> <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" >--}}
                             {{--                                        Request Interview--}}
                             {{--                                    </button></a>--}}
                             {{--                            </form> --}}
@@ -154,26 +154,26 @@
             </table>
         </div>
 
-        <div class="mt-5 flex justify-items-center justify-center">
+        <div class="flex justify-center mt-5 justify-items-center">
             <div class="w-full max-w-xs">
 {{--            <form wire:submit.prevent="validateDocs">--}}
                 <div class="mb-4">
-                    {{--                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">--}}
+                    {{--                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="name">--}}
                     {{--                                        Select--}}
                     {{--                                    </label>--}}
-                    <select wire:model="docValidation" id="valid" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <select wire:model="docValidation" id="valid" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                         <option>select</option>
                         <option value="Valid">Valid</option>
                         <option value="Invalid">Invalid</option>
                     </select>
                     @error('valid')
-                    <p class="text-red-500 text-xs italic mt-4">
+                    <p class="mt-4 text-xs italic text-red-500">
                         {{ $message }}
                     </p>
                     @enderror
                 </div>
 
-{{--                <a href=""> <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >--}}
+{{--                <a href=""> <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" >--}}
 {{--                        Confirm--}}
 {{--                    </button></a>--}}
 {{--            </form>--}}
@@ -182,88 +182,88 @@
 {{--@elseif($validDocs==true)--}}
 
     @if($docValidation=="Valid")
-        <div class="mt-5 flex justify-items-center justify-center">
+        <div class="flex justify-center mt-5 justify-items-center">
             <div class="w-full max-w-xs">
-                <form wire:submit.prevent="loanValid({{$this->loanRID}})" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <form wire:submit.prevent="loanValid({{$this->loanRID}})" class="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="loanAmt">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="loanAmt">
                             Loan Amount
                         </label>
 {{--                        {{dd($loanAmt)}}--}}
-                        <input wire:model="loanAmt" id="loanAmt" type="text" placeholder="$" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input wire:model="loanAmt" id="loanAmt" type="text" placeholder="$" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                         @error('loanAmt')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ "Please enter loan amount." }}
                         </p>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="intRate">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="intRate">
                             Interest Rate
                         </label>
-                        <input wire:model="intRate" id="intRate" type="text" placeholder="%" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input wire:model="intRate" id="intRate" type="text" placeholder="%" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                         @error('intRate')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{"Please enter interest amount." }}
                         </p>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for=repayPeriod">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for=repayPeriod">
                             Repayment Period [year(s)]
                         </label>
-                        <input wire:model="repayPeriod" id="repayPeriod" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input wire:model="repayPeriod" id="repayPeriod" type="number" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
                         @error('repayPeriod')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="mt-4 text-xs italic text-red-500">
                             {{ "Please select number of repayment year(s)." }}
                         </p>
                         @enderror
                     </div>
                     <hr>
 {{--                    <div class="mb-4">--}}
-{{--                        <label class="block text-gray-700 text-sm font-bold mb-2" for="payMon">--}}
+{{--                        <label class="block mb-2 text-sm font-bold text-gray-700" for="payMon">--}}
 {{--                            Monthly Payment--}}
 {{--                        </label>--}}
-{{--                        <input readonly wire:model="payMon" id="payMon" type="text" placeholder="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">--}}
+{{--                        <input readonly wire:model="payMon" id="payMon" type="text" placeholder="0" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">--}}
 {{--                        @error('payMon')--}}
-{{--                        <p class="text-red-500 text-xs italic mt-4">--}}
+{{--                        <p class="mt-4 text-xs italic text-red-500">--}}
 {{--                            {{ $message }}--}}
 {{--                        </p>--}}
 {{--                        @enderror--}}
 {{--                    </div>--}}
 {{--                    <div class="mb-4">--}}
-{{--                        <label class="block text-gray-700 text-sm font-bold mb-2" for="totalPay">--}}
+{{--                        <label class="block mb-2 text-sm font-bold text-gray-700" for="totalPay">--}}
 {{--                            Interest Rate--}}
 {{--                        </label>--}}
-{{--                        <input readonly wire:model="totalPay" id="totalPay" type="text" placeholder="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">--}}
+{{--                        <input readonly wire:model="totalPay" id="totalPay" type="text" placeholder="0" class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">--}}
 {{--                        @error('totalPay')--}}
-{{--                        <p class="text-red-500 text-xs italic mt-4">--}}
+{{--                        <p class="mt-4 text-xs italic text-red-500">--}}
 {{--                            {{ $message }}--}}
 {{--                        </p>--}}
 {{--                        @enderror--}}
 {{--                    </div>--}}
-                    <a href=""> <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >
+                    <a href=""> <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" >
                             Approve
                         </button></a>
                 </form>
             </div>
         </div>
         @elseif($docValidation=="Invalid")
-            <div class="mt-5 flex justify-items-center justify-center">
+            <div class="flex justify-center mt-5 justify-items-center">
                 <div class="w-full max-w-xs">
-                    <form wire:submit.prevent="loanInvalid({{$this->loanRID}})" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <form wire:submit.prevent="loanInvalid({{$this->loanRID}})" class="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
                         <div class="mb-4">
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="totalPay">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="totalPay">
                                 Comment
                             </label>
-                            <textarea wire:model="comment" id="comm" placeholder="comments.." class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                            <textarea wire:model="comment" id="comm" placeholder="comments.." class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"></textarea>
                             @error('comment')
-                            <p class="text-red-500 text-xs italic mt-4">
+                            <p class="mt-4 text-xs italic text-red-500">
                                 {{ "Please state reason for loan application denial."}}
                             </p>
                             @enderror
                         </div>
-                        <a href=""> <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >
+                        <a href=""> <button type="submit" class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700 focus:outline-none focus:shadow-outline" >
                                 Deny
                             </button></a>
                     </form>

@@ -12,6 +12,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <!-- Alpine Js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <!-- tmp -->
@@ -25,105 +27,119 @@
           rel="stylesheet">
     @livewireStyles
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+<body class="h-screen font-sans antialiased leading-none bg-gray-100">
 
 <div>
-    <div class="bg-orange-500 px-4 py-4">
-        <div
-            class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between"
-        >
-            <div class="flex justify-between items-center">
-                <a href="{{url('/')}}" class="inline-block py-2 text-white text-xl font-bold"
-                >Amber Loans</a
-                >
-                <div
-                    class="inline-block cursor-pointer md:hidden">
-                    <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
-                    <div class="bg-gray-400 w-8 mb-2" style="height: 2px;"></div>
-                    <div class="bg-gray-400 w-8" style="height: 2px;"></div>
+            <nav class="px-4 py-4 bg-white">
+                <div class="max-w-6xl px-4 mx-auto">
+                    <div class="flex justify-between">
+                        <div class="flex space-x-7">
+                            <div>
+                                <!-- Website Logo -->
+                                <a href="{{url('/')}}" class="flex items-center px-2 py-4">
+                                    {{-- <img src="images/logo.png" alt="Logo" class="h-8 mr-2 w-120"> --}}
+                                    <span class="text-xl font-bold text-gray-600">GG Loan Services</span>
+                                </a>
+                            </div>
+                            <!-- Primary Navbar items -->
+                            {{-- <div class="items-center hidden space-x-1 md:flex">
+                                <a href="" class="px-2 py-4 font-semibold text-blue-500 border-b-4 border-blue-500 ">Home</a>
+                                <a href="" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500">Services</a>
+                                <a href="" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500">About</a>
+                                <a href="" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500">Contact Us</a>
+                            </div> --}}
+                        </div>
+                        <!-- Secondary Navbar items -->
+                        <div class="items-center hidden space-x-3 md:flex ">
+                            <a href="{{route('loanRequirement')}}" class="px-2 py-4 font-bold text-gray-600 transition duration-300 hover:bg-orange-400 hover:text-white">Loan Requirements</a>
+                            <a href="{{route('contactUs')}}" class="px-2 py-4 font-semibold text-gray-600 transition duration-300 hover:bg-orange-400 hover:text-white">Contact us</a>
+                        </div>
+                        <!-- Mobile menu button -->
+                        <div class="flex items-center md:hidden">
+                            <button class="outline-none mobile-menu-button">
+                            <svg class="w-6 h-6 text-gray-600 hover:text-orange-500"
+                                x-show="!showMenu"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div>
-                <div class="hidden md:block">
-                    <a
-                        href="{{route('loanRequirement')}}"
-                        class="inline-block py-1 md:py-4 text-gray-100 mr-6 font-bold"
-                    >Loan Requirement</a
-                    >
-                    <a
-                        href="{{route('contactUs')}}"
-                        class="inline-block py-1 md:py-4 text-gray-100 hover:text-gray-100 mr-6"
-                    >Contact Us</a
-                    >
-
+                <!-- mobile menu -->
+                <div class="hidden mobile-menu">
+                    <ul class="">
+                        <li><a href="{{route('loanRequirement')}}" class="block px-2 py-4 text-sm font-bold text-gray-600 transition duration-300 hover:bg-gray-200">Loan Requirements</a></li>
+                        <li><a href="{{route('contactUs')}}" class="block px-2 py-4 text-sm font-semibold text-gray-600 transition duration-300 hover:bg-gray-200">Contact Us</a></li>
+                    </ul>
                 </div>
-            </div>
-{{--            <div class="hidden md:block">--}}
-{{--                <a--}}
-{{--                    href="#"--}}
-{{--                    class="inline-block py-1 md:py-4 text-gray-100 hover:text-gray-100 mr-6"--}}
-{{--                >Login</a--}}
-{{--                >--}}
-{{--                <a--}}
-{{--                    href="#"--}}
-{{--                    class="inline-block py-2 px-4 text-gray-700 bg-white hover:bg-gray-100 rounded-lg"--}}
-{{--                >Sign Up</a--}}
-{{--                >--}}
-{{--            </div>--}}
-        </div>
+                <script>
+                    const btn = document.querySelector("button.mobile-menu-button");
+                    const menu = document.querySelector(".mobile-menu");
+    
+                    btn.addEventListener("click", () => {
+                        menu.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+</div>
     </div>
 </div>
 
 @yield('content')
 
-
-{{--        Footer--}}
-
-<p class="text-center text-gray-600 ">
-    <!-- component -->
-    <script src="https://kit.fontawesome.com/4db6b32bd3.js" crossorigin="anonymous"></script>
-<div class="w-full bg-green-900 text-white">
-    <div class="xl:px-40 pb-12 lg:px-20 md:px-10 sm:px-5 px-10">
-        <div class="w-full pt-12 flex flex-col sm:flex-row space-y-2  justify-start">
-            <div class="w-full sm:w-2/5 pr-6 flex flex-col space-y-4">
-                {{--                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="57" viewBox="0 0 160 57">--}}
-                {{--                        <defs>--}}
-                {{--                            <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 197 70">--}}
-                <image width="197" height="70" src="/images/logo.png"/>
-                {{--                            </pattern>--}}
-                {{--                        </defs>--}}
-                {{--                        <rect id="ETI-Logo" width="160" height="57" fill="url(#pattern)"/>--}}
-                {{--                    </svg>--}}
-                <p class="opacity-60">2021 Awesome Street, Kingston 7
-                    Kingston, Jamaica.</p>
+<script src="https://kit.fontawesome.com/4db6b32bd3.js" crossorigin="anonymous"></script>
+<div class="w-full text-white bg-green-900">
+    <div class="px-10 pb-12 xl:px-40 lg:px-20 md:px-10 sm:px-5">
+        <div class="flex flex-col justify-start w-full pt-12 space-y-2 sm:flex-row">
+            <div class="flex flex-col w-full pr-6 space-y-4 sm:w-2/5">
+               {{-- <image width="197" height="70" src="/images/logo.png"/> --}}
+               <p class="font-bold opacity-60">GG Loan Services</p>
+               <p class="opacity-60">2021 Awesome Street, Kingston 7</p>
+                <p>  Kingston, Jamaica.</p>
             </div>
-            <div class="w-full sm:w-1/5 flex flex-col space-y-4">
-                <a class="opacity-60">About Us</a>
-                <a class="opacity-60">Responsibilities</a>
-                <a class="opacity-60">Our Services</a>
-                <a class="opacity-60">Contact</a>
+            <div class="flex flex-col w-full space-y-4 sm:w-1/5">
+                <a class="opacity-60" href="#">About Us</a>
+                <a class="opacity-60" href="#">Responsibilities</a>
+                <a class="opacity-60" href="#">Our Services</a>
             </div>
-            <div class="w-full sm:w-1/5 flex flex-col space-y-4">
-                <a class="opacity-60">Disclaimer</a>
-                <a class="opacity-60">Testimonials</a>
-                <a class="opacity-60">Privacy Policy</a>
-                <a class="opacity-60">Terms of Service</a>
+            <div class="flex flex-col w-full space-y-4 sm:w-1/5">
+                <a class="opacity-60" href="#">Contact Us</a>
+                <a class="opacity-60" href="#">Join Us</a>
+                <a class="opacity-60" href="#">Stakeholders</a>
             </div>
-            <div class="w-full sm:w-1/5 pt-6 flex items-end mb-1">
-                <div class="flex flex-row space-x-4">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-google"></i>
+            <div class="flex flex-col w-full space-y-4 sm:w-1/5">
+                <a class="opacity-60" href="#">Disclaimer</a>
+                <a class="opacity-60" href="#">Testimonials</a>
+                <a class="opacity-60" href="#">Privacy Policy</a>
+            </div>
+            <div class="flex items-end w-full pt-6 mb-1 sm:w-1/5">
+               <div class="flex flex-row space-x-4">
+                    <a href="#">  <i class="fab fa-facebook-f"></i> </a>
+                    <a href="#">   <i class="fab fa-twitter"></i></a>
+                    <a href="#">   <i class="fab fa-instagram"></i></a>
+                    <a href="#">   <i class="fab fa-google"></i></a>
                 </div>
             </div>
         </div>
-        <div class="opacity-60 pt-2">
-            <p>© 2021 Amber Loan Services Intl.</p>
-        </div>
+    </div>
+   <hr class="border-green-400">
+    
+    {{-- signature --}}
+    <hr >
+    <div class="flex items-center justify-center py-4">
+        <p class="mt-2 text-white leadind-none text-ms focus:outline-none lg:text-sm">Designed by Shaneika Lewis</p>
     </div>
 </div>
+
+
+
 
 
 @livewireScripts
@@ -138,34 +154,3 @@
 
 
 
-
-
-
-{{--    <div id="app">--}}
-{{--        <header class="bg-blue-900 py-6">--}}
-{{--            <div class="container mx-auto flex justify-between items-center px-6">--}}
-{{--                <div>--}}
-{{--                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">--}}
-{{--                        {{ config('app.name', 'Laravel') }}--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">--}}
-{{--                    @guest--}}
-{{--                        <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
-{{--                        @if (Route::has('register'))--}}
-{{--                            <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
-{{--                        @endif--}}
-{{--                    @else--}}
-{{--                        <span>{{ Auth::user()->name }}</span>--}}
-
-{{--                        <a href="{{ route('logout') }}"--}}
-{{--                           class="no-underline hover:underline"--}}
-{{--                           onclick="event.preventDefault();--}}
-{{--                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>--}}
-{{--                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">--}}
-{{--                            {{ csrf_field() }}--}}
-{{--                        </form>--}}
-{{--                    @endguest--}}
-{{--                </nav>--}}
-{{--            </div>--}}
-{{--        </header>--}}
